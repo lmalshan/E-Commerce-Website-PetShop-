@@ -1,0 +1,2 @@
+$age = floor((time() - strtotime('1986-09-16')) / 31556926);
+		echo $age;

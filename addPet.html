@@ -1,0 +1,85 @@
+<?php session_start(); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Add a Pet</title>
+<link href="addPet.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div class="body-content">
+  <div class="module">
+    <h1>My Pet</h1>
+    <form class="form" method="post" enctype="multipart/form-data" autocomplete="off">
+      <div class="alert alert-error"></div>
+      	<input type="text" placeholder="Pet's Name" name="petname" required /><br>
+      	<input type="radio" name="type" value="dog"  required/> Dog<br>
+     	<input type="radio" name="type" value="cat" > Cat<br>
+      	<input type="text" placeholder="Breed" name="breed" required /><br>
+      	<input type="date" placeholder="Birthday" name="bday"><br>
+      	<input type="text" placeholder="Weight (lbs)" name="weight" ><br>
+      	<input type="text" placeholder="Height (cm)" name="height" ><br>
+      	<input type="radio" name="gender" value="male" required/> Male<br>
+      	<input type="radio" name="gender" value="female"> Female<br>
+      	<input type="text" placeholder="Color" name="color"><br>
+      	<div class="avatar"><label>Select your pet: </label><br><input type="file" name="petimage" accept="image/*" >
+      </div>
+      <input type="submit" value="Register" name="register" class="btn btn-block btn-primary" />
+      
+      <?php
+      	if(isset($_POST['register'])){
+        	$PetName=$_POST['petname'];
+            $Type=$_POST['type'];
+            $Breed=$_POST['breed'];
+            $DOB=$_POST['bday'];
+            $Weight=$_POST['weight'];
+            $Height=$_POST['height'];
+            $Gender=$_POST['gender'];
+            $Color=$_POST['color'];
+           //$pic=$_POST['petimage'];
+		  	 $today = date('m/d/Y');
+            
+           	/*function week_between_two_dates($date1, $date2)
+			{
+			    $first = DateTime::createFromFormat('m/d/Y', $date1);
+			    $second = DateTime::createFromFormat('m/d/Y', $date2);
+    			if($date1 > $date2) return week_between_two_dates($date2, $date1);
+    			return floor($first->diff($second)->days/7);
+			}
+            $Age = week_between_two_dates($today,$DOB);*/
+			
+			//$Age = date_diff(date_create($DOB), date_create($today));
+			
+			//$Age = datediff('ww', $DOB, $today, false);
+            
+            /*if($Age<48){
+            	$Nick = "Puppy";
+            }else{
+            	$Nick = "Adult";
+			}*/
+			
+			
+            
+            $con = mysqli_connect("localhost","root","","cuddlecare");
+            
+            if(!$con)
+            {
+            	die("Cannot connect to DB server");
+			}
+            
+            $sql = "INSERT INTO `pettable`(`Name`, `Type`, `Breed`, `Bday`, `Weight`, `Height`, `Gender`, `Color`) 
+            VALUES ('".$PetName."','".$Type."','".$Breed."','".$DOB."','".$Weight."','".$Height."','".$Gender."','".$Color."')";
+            
+            $run_insert=mysqli_query($con,$sql);
+            mysqli_close($con);
+            if($run_insert){
+            	echo "New Pet Added";
+            }
+        }
+		?>
+    </form>
+  </div>
+</div>
+</body>
+</html>

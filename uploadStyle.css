@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body{
+	background-color: aliceblue;
+	/*background-color: transparent;*/
+}
+
+#content{
+	width: 50%;
+	margin: 20px auto;
+	border: 0px solid #cbcbcb;
+}
+
+input[type=submit]{
+	float: right;
+	cursor: pointer;
+	border-radius: 4px;
+	background-color:rgba(40,121,160,1.00);
+    color: white;
+    padding: 12px 15px ;
+	margin: 2px auto;
+    
+}
+
+
+
+
+form{
+	width: 80%;
+	margin: 20px auto;
+}
+
+form_div{
+	width: 80%;
+	padding: 5px;
+	margin: 15px auto;
+	border: 1px solid #cbcbcb;
+}
+
+div[id=phptag]{
+	background-color: lightgray;
+	margin-top: 25px;
+	margin-bottom: 5px;
+	
+}
+
+#img_div:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+img{
+	float: left;
+	margin: 5px;
+	width: 250px;
+	height: 165px;
+}
+hr{
+	color: black;
+	margin: 20px;
+}

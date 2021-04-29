@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body{
+	background-color: aliceblue;
+	/*background-color: transparent;*/
+}
+
+h1{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+	text-align:center;
+	font-size:25px;
+
+}
+#content{
+	width: 60%;
+	margin: 20px auto;
+	border: 3px solid #cbcbcb;
+}
+
+form{
+	width: 60%;
+	margin: 40px auto;
+	border: 0px solid #cbcbcb;
+}
+
+
+div.image
+{
+  margin: 2px;
+  height: auto;
+  width: auto;
+  float: left;
+  text-align: center;
+}
+
+div.image img
+{
+  display: inline;
+  margin: 3px;
+
+}
+
+div.desc
+{
+  text-align: center;
+  font-weight: normal;
+  width: auto;
+ 	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+	font-size:16px;
+}
+
+img{
+	float: left;
+	margin: 8px;
+	width: 155px;
+	height: 160px;
+	padding-top: 10px;
+
+}
